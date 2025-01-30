@@ -82,13 +82,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="card">
+       <div className="card ">
         <div className='font-bold text-[xx-large] text-center'>iTask - Manage Your Todos</div>
         <div>
           <div className='font-semibold text-[x-large] my-5'>Add a Todo</div>
-          <div className='flex gap-2 my-5'>
+          <div className='flex gap-2 my-5 flex-col lg:flex-row justify-evenly'>
             <input
-              className='bg-white w-[80%] h-[40px] rounded-full border pl-[15px] outline-none'
+              className='bg-white w-[100%] lg:w-[80%] h-[40px] rounded-full border pl-[15px] outline-none'
               value={searchtodo.newtodo}
               name='newtodo'
               onChange={changed}
