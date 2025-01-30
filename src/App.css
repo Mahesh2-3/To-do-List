@@ -4,7 +4,8 @@
     border-radius: 8px;
     margin: 25px auto;
     padding: 20px;
-    width: 37vw;
+    min-width: 300px;
+    max-width: 50vw;
     height: 82vh;
 }
 
