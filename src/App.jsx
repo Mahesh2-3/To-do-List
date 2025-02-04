@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx'; // Ensure correct file name case
+import Footer from './components/Footer.jsx'; // Ensure correct file name case
 import './App.css';
 import deleteIcon from './assets/delete.svg';
 import editIcon from './assets/edit.svg';
@@ -120,6 +121,7 @@ function App() {
           </ul>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
