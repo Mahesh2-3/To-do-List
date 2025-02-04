@@ -84,7 +84,7 @@ function App() {
     <>
       <Navbar />
        <div className="card ">
-        <div className='font-bold text-[xx-large] text-center'>iTask - Manage Your Todos</div>
+        <div className='font-bold h-[80vh] text-[xx-large] text-center'>iTask - Manage Your Todos</div>
         <div>
           <div className='font-semibold text-[x-large] my-5'>Add a Todo</div>
           <div className='flex gap-2 my-5 flex-col lg:flex-row justify-evenly'>
