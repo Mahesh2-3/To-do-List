@@ -5,7 +5,8 @@
     margin: 25px auto;
     padding: 20px;
     min-width: 300px;
-    max-width: 50vw;
+    max-width: 60vw;
+    width: 60%;
 }
 
 .todolist li{

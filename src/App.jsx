@@ -83,45 +83,47 @@ function App() {
   return (
     <>
       <Navbar />
-       <div className="card ">
-        <div className='font-bold h-[80vh] text-[xx-large] text-center'>iTask - Manage Your Todos</div>
-        <div>
-          <div className='font-semibold text-[x-large] my-5'>Add a Todo</div>
-          <div className='flex gap-2 my-5 flex-col lg:flex-row justify-evenly'>
-            <input
-              className='bg-white w-[100%] lg:w-[80%] h-[40px] rounded-full border pl-[15px] outline-none'
-              value={searchtodo.newtodo}
-              name='newtodo'
-              onChange={changed}
-              type="text"
-            />
-            <button className='bg-blue-500 hover:bg-blue-700 text-white font-semibold text-xl py-1 px-[27px] rounded-full' onClick={savedata}>Save</button>
+      <div className='h-[86vh] flex'>
+        <div className="card h-[80%] my-auto">
+          <div className='font-bold text-[xx-large]  text-center'>iTask - Manage Your Todos</div>
+          <div>
+            <div className='font-semibold text-[x-large] my-5'>Add a Todo</div>
+            <div className='flex gap-2 my-5 flex-col lg:flex-row justify-start'>
+              <input
+                className='bg-white w-[100%] lg:w-[80%] h-[40px] rounded-full border pl-[15px] outline-none'
+                value={searchtodo.newtodo}
+                name='newtodo'
+                onChange={changed}
+                type="text"
+              />
+              <button className='bg-blue-500 hover:bg-blue-700 text-white font-semibold text-xl py-1 px-[27px] rounded-full' onClick={savedata}>Save</button>
+            </div>
+            <div className='flex gap-2 text-[16px] font-semibold'>
+              <input className='cursor-pointer' type="checkbox" onChange={showcompleted} />
+              <div>Show Finished</div>
+            </div>
           </div>
-          <div className='flex gap-2 text-[16px] font-semibold'>
-            <input type="checkbox" onChange={showcompleted} />
-            <div>Show Finished</div>
+          <hr className='h-[2px] my-5 bg-slate-500' />
+          <div>
+            <h1 className='font-semibold text-[x-large] my-5'>Your Todos</h1>
+            <ul className='todoslist' ref={element}>
+              {todos.map((todo, index) => (
+                <li key={index} className={`mb-4 flex justify-between items-center ${show || !comp.includes(index) ? 'flex' : 'hidden'}`}>
+                  <div className=' flex gap-4'>
+                    <input className='cursor-pointer' type="checkbox" checked={todo[todos[index]]} onChange={check} id={index} />
+                    <div className={`searchedtext text-[18px] font-semibold ${comp.includes(index) ? 'line-through' : ''}`}>{todo}</div>
+                  </div>
+                  <div className='flex gap-4'>
+                    <img className='svgs w-[19px] cursor-pointer hover:scale-150 transition-all' id={index} onClick={deleted} src={deleteIcon} alt="Delete" />
+                    <img className='svgs w-[19px] cursor-pointer hover:scale-150 transition-all' id={index} onClick={edit} src={editIcon} alt="Edit" />
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <hr className='h-[2px] my-5 bg-slate-500' />
-        <div>
-          <h1 className='font-semibold text-[x-large] my-5'>Your Todos</h1>
-          <ul className='todoslist' ref={element}>
-            {todos.map((todo, index) => (
-              <li key={index} className={`mb-4 flex justify-between items-center ${show || !comp.includes(index) ? 'flex' : 'hidden'}`}>
-                <div className='flex gap-4'>
-                  <input type="checkbox" checked={todo[todos[index]]} onChange={check} id={index} />
-                  <div className={`searchedtext text-[18px] font-semibold ${comp.includes(index) ? 'line-through' : ''}`}>{todo}</div>
-                </div>
-                <div className='flex gap-4'>
-                  <img className='svgs w-[19px] cursor-pointer hover:scale-150 transition-all' id={index} onClick={deleted} src={deleteIcon} alt="Delete" />
-                  <img className='svgs w-[19px] cursor-pointer hover:scale-150 transition-all' id={index} onClick={edit} src={editIcon} alt="Edit" />
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
